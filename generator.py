@@ -1,9 +1,10 @@
 from transformers import pipeline
 
+
 generator = pipeline("text-generation", "gpt2")
 
 
-class Utils:
+class Generator:
     def __init__(self):
         self.generator = generator
 

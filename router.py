@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from models import SourceTextLen
-from utils import Utils
+from generator import Generator
 
 
 api_router = APIRouter()
@@ -17,5 +17,5 @@ def generate_len(source: SourceTextLen):
     - **text**: input user text
     - **text_len**: count of output symbols
     """
-    generator = Utils()
-    return generator.generate_text(source.text, source.text_len)
+    gen = Generator()
+    return gen.generate_text(source.text, source.text_len)
