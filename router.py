@@ -1,10 +1,9 @@
-from transformers import pipeline
 from fastapi import APIRouter
-from models import SourceTextLen, SourceText
+from models import SourceTextLen
+from generator import Generator
 
 
 api_router = APIRouter()
-generator = pipeline("text-generation", "gpt2")
 
 
 @api_router.get("/")
@@ -18,4 +17,5 @@ def generate_len(source: SourceTextLen):
     - **text**: input user text
     - **text_len**: count of output symbols
     """
-    return generator.generate_text(source.text, source.text_len)
+    gen = Generator()
+    return gen.generate_text(source.text, source.text_len)
