@@ -4,3 +4,4 @@ pydantic==1.10.7
 transformers==4.28.0
 torch>=1.13.0
 httpx==0.24.0
+styleformer @ git+https://github.com/PrithivirajDamodaran/Styleformer.git@main
