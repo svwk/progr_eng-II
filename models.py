@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
 
-class SourceTextLen(BaseModel):
+class SourceText(BaseModel):
     text: str
-    text_len: int
+    precision: float

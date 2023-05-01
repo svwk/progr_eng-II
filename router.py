@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from models import SourceTextLen
+from models import SourceText
 from generator import Generator
 
 
@@ -11,11 +11,11 @@ async def root():
     return {"message": "Формализация текста"}
 
 
-@api_router.post("/generate_len/")
-def generate_len(source: SourceTextLen):
-    """Text generation using user input
+@api_router.post("/convert/")
+def generate_len(source: SourceText):
+    """Convert sentence from casual style to formal
     - **text**: input user text
-    - **text_len**: count of output symbols
+    - **presicion**: precision of convertation, 0 to 1, more - better, but slower
     """
     gen = Generator()
-    return gen.generate_text(source.text, source.text_len)
+    return gen.generate_text(source.text, source.precision)
