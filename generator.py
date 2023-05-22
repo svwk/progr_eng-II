@@ -46,10 +46,15 @@ class Generator:
         - **text**: input user text
         - **precision**: precision of convertation, 0 to 1, more - better, but slower
         """
-        if precision <= 0:
+        if precision <= 0 or precision > 1:
             message = "Precision is not valid. "\
                       "Precision should be in range [0, 1]"
-            return {"Message": message}
+            return {"Error": message}
+
+        if text == None or len(text) == 0:
+            message = "Text is not valid. "\
+                      "Text should not be empty or None"
+            return {"Error": message}
         try:
             result_text_list = []
             sentences = text.split(".")
@@ -61,5 +66,6 @@ class Generator:
         except Exception as e:
             message = f"Parameters are not valid. {e}."\
                     f"I don't know what to say"
-            return {"Message": message}
+            return {"Exception": message}
         return {"generated_text": "".join(result_text_list)}
+
