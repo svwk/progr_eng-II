@@ -1,5 +1,6 @@
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from styleformer import Adequacy
+import re
 
 
 tokenizer = AutoTokenizer.from_pretrained("prithivida/informal_to_formal_styletransfer")
@@ -52,7 +53,7 @@ class Generator:
             return {"Message": message}
         try:
             result_text_list = []
-            sentences = text.split(".")
+            sentences = re.split("(?<=[.!?]) +", text)
             for sentence in sentences:
                 if len(sentence) > 0:
                     formal_text = self._casual_to_formal(sentence, precision)

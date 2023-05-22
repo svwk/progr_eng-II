@@ -1,0 +1,104 @@
+<div class="app-container">
+  <h2>Text style converter</h2>
+
+  <div class="app-description">
+    <p>Enter text in English to convert from casual style to formal style.</p>
+    <p>Precision can be a number from {{MIN_PRECISION}} to {{MAX_PRECISION}}. <br/> The greater the precision, the
+      better the result, but more time for answer needed.</p>
+  </div>
+  <div class="elements-container">
+    <div class="element-cell">
+      <form
+        class="app-form"
+        [formGroup]="form"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="app-form-element">
+          <span class="text-bold">Text to convert</span>
+          <textarea
+            id="text"
+            required
+            formControlName="text"
+            rows="6"
+          ></textarea>
+          <div *ngIf="text?.invalid && (text?.dirty || text?.touched)"
+               class="alert">
+            <div *ngIf="text?.errors?.['required']">
+              Text is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="app-form-element">
+          <label>
+            <span>Precision</span>
+            <input
+              id="precision"
+              required
+              type="number"
+              step="0.01"
+              [min]="MIN_PRECISION"
+              [max]="MAX_PRECISION"
+              formControlName="precision"
+            >
+          </label>
+          <div *ngIf="precision?.invalid && (precision?.dirty || precision?.touched)"
+               class="alert">
+            <div *ngIf="precision?.errors?.['required']">
+              Precision is required.
+            </div>
+            <div *ngIf="precision?.errors?.['min']">
+              Precision should be {{MIN_PRECISION}} or bigger.
+            </div>
+            <div *ngIf="precision?.errors?.['max']">
+              Precision should be {{MAX_PRECISION}} or less.
+            </div>
+          </div>
+        </div>
+
+        <div class="app-form-element">
+          <button
+            class="submit-button"
+            type="submit"
+            [disabled]="isLoading"
+          >
+            <span *ngIf="!isLoading">Convert</span>
+            <svg *ngIf="isLoading" width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg"
+                 stroke="#fff">
+              <g fill="none" fill-rule="evenodd">
+                <g transform="translate(1 1)" stroke-width="2">
+                  <circle stroke-opacity=".5" cx="18" cy="18" r="18"/>
+                  <path d="M36 18c0-9.94-8.06-18-18-18">
+                    <animateTransform
+                      attributeName="transform"
+                      type="rotate"
+                      from="0 18 18"
+                      to="360 18 18"
+                      dur="1s"
+                      repeatCount="indefinite"/>
+                  </path>
+                </g>
+              </g>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="element-cell">
+      <span class="text-bold">Result</span>
+      <div class="result-container" *ngIf="!isLoading && result || true">
+        <textarea
+          disabled
+          rows="6"
+        >{{result}}</textarea>
+      </div>
+      <div class="alert" *ngIf="didRequest && !result && !error">
+        Unable to convert text. Try to change it or provide another one.
+      </div>
+      <div class="alert" *ngIf="didRequest && error">
+        {{error}}
+      </div>
+    </div>
+
+  </div>

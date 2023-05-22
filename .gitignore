@@ -130,3 +130,38 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+/WebClient/dist
+/WebClient/tmp
+/WebClient/out-tsc
+/WebClient/bazel-out
+
+# Node
+/WebClient/node_modules
+/WebClient/npm-debug.log
+/WebClient/yarn-error.log
+
+# IDEs and editors
+/WebClient/.idea/
+/WebClient/.project
+/WebClient/.classpath
+/WebClient/.c9/
+/WebClient/*.launch
+/WebClient/.settings/
+/WebClient/*.sublime-workspace
+
+# Miscellaneous
+/WebClient/.angular/cache
+/WebClient/.sass-cache/
+/WebClient/connect.lock
+/WebClient/coverage
+/WebClient/libpeerconnection.log
+/WebClient/testem.log
+/WebClient/typings
+
+# System files
+/WebClient/.DS_Store
+/WebClient/Thumbs.db
