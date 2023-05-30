@@ -1,0 +1,78 @@
+.app-container {
+  display: flex;
+  margin: 30px auto;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 760px;
+  max-width: 760px;
+}
+
+.app-container h2 {
+  width: 100%;
+  text-align: center;
+}
+
+.app-description {
+  text-align: justify;
+}
+
+.elements-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+}
+
+.elements-container .element-cell {
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+  flex: 1;
+}
+
+.elements-container .element-cell span {
+  margin-bottom: 5px;
+}
+
+.app-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.app-form-element, .app-form-element > label {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-form-element:not(:first-child) {
+  margin-top: 10px;
+}
+
+.app-form-element span {
+  margin-bottom: 5px;
+}
+
+.app-form-element .submit-button {
+  align-self: center;
+  width: 150px;
+  min-height: 45px;
+  border: none;
+  margin-top: 15px;
+  background: green;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.app-form-element .submit-button:disabled {
+  background: grey;
+  cursor: default;
+}
+
+.app-form-element .submit-button svg {
+  padding: 2px;
+}
+
+.app-form-element .ng-invalid.ng-touched {
+  border: 2px solid red;
+}
