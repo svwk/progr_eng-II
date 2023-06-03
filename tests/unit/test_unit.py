@@ -2,8 +2,7 @@ import sys
 sys.path.append('.')
 
 import unittest
-import params_t as pt
-from unittest.mock import Mock
+import tests.params_t as pt
 from generator import Generator
 
 generator = Generator()

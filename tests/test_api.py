@@ -1,7 +1,6 @@
 import sys
 sys.path.append('.')
 
-import pytest
 import params_t as pt
 from main import app
 from fastapi.testclient import TestClient
