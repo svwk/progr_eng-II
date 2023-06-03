@@ -1,7 +1,7 @@
 [![Python application](https://github.com/svwk/progr_eng-II/actions/workflows/python-app.yml/badge.svg)](https://github.com/svwk/progr_eng-II/actions/workflows/python-app.yml)
 
 # Формализация текста
-## Итоговый проект по дисциплине "Програмная инжинерия II"
+## Итоговый проект по дисциплине "Программная инженерия II"
 ## Группа 4 
 Состав группы:
  - Dmitrii-Krasnov: Дмитрий Краснов
