@@ -1,3 +1,5 @@
+[![Python application](https://github.com/svwk/progr_eng-II/actions/workflows/python-app.yml/badge.svg)](https://github.com/svwk/progr_eng-II/actions/workflows/python-app.yml)
+
 # Формализация текста
 ## Итоговый проект по дисциплине "Програмная инжинерия II"
 ## Группа 4 
