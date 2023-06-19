@@ -2,7 +2,6 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from styleformer import Adequacy
 import re
 
-
 tokenizer = AutoTokenizer.from_pretrained("prithivida/informal_to_formal_styletransfer")
 model = AutoModelForSeq2SeqLM.from_pretrained("prithivida/informal_to_formal_styletransfer")
 adequacy = "prithivida/parrot_adequacy_model" and Adequacy(model_tag="prithivida/parrot_adequacy_model")
@@ -48,12 +47,12 @@ class Generator:
         - **precision**: precision of convertation, 0 to 1, more - better, but slower
         """
         if precision <= 0 or precision > 1:
-            message = "Precision is not valid. "\
+            message = "Precision is not valid. " \
                       "Precision should be in range [0, 1]"
             return {"Error": message}
 
-        if text == None or len(text) == 0:
-            message = "Text is not valid. "\
+        if text is None or len(text) == 0:
+            message = "Text is not valid. " \
                       "Text should not be empty or None"
             return {"Error": message}
         try:
@@ -65,8 +64,7 @@ class Generator:
                     if formal_text is not None:
                         result_text_list.append("".join([formal_text, " "]))
         except Exception as e:
-            message = f"Parameters are not valid. {e}."\
-                    f"I don't know what to say"
+            message = f"Parameters are not valid. {e}." \
+                      f"I don't know what to say"
             return {"Exception": message}
         return {"generated_text": "".join(result_text_list)}
-

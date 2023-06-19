@@ -1,18 +1,19 @@
 import sys
-sys.path.append('.')
+from fastapi.testclient import TestClient
 
 import params_t as pt
 from main import app
-from fastapi.testclient import TestClient
 
-
+sys.path.append('.')
 client = TestClient(app)
+
 
 def test_get():
     """Testing get request"""
     response = client.get("/")
     assert response.status_code == 200
     assert response.json() == {"message": "Формализация текста"}
+
 
 def test_post_convert():
     """Testing post request for text generation"""
